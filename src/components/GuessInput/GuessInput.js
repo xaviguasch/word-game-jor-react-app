@@ -1,13 +1,15 @@
 import React from 'react'
 
-function GuessInput() {
-  const [guess, setGuess] = React.useState('')
+function GuessInput({ onAddNewGuess }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ guess })
+    console.log({ tentativeGuess })
 
-    setGuess('')
+    onAddNewGuess({ id: crypto.randomUUID(),value: tentativeGuess })
+
+    setTentativeGuess('')
   }
 
   return (
@@ -17,8 +19,8 @@ function GuessInput() {
         required
         id='guess-input'
         type='text'
-        value={guess}
-        onChange={(e) => setGuess(e.target.value.toUpperCase())}
+        value={tentativeGuess}
+        onChange={(e) => setTentativeGuess(e.target.value.toUpperCase())}
         minLength={5}
         maxLength={5}
         pattern='[a-zA-Z]{5}'
