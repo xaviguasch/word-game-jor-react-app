@@ -5,9 +5,8 @@ function GuessInput({ onAddNewGuess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ tentativeGuess })
 
-    onAddNewGuess({ id: crypto.randomUUID(),value: tentativeGuess })
+    onAddNewGuess({ id: crypto.randomUUID(), value: tentativeGuess })
 
     setTentativeGuess('')
   }
