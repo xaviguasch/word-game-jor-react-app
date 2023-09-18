@@ -1,6 +1,7 @@
 import React from 'react'
 import { range } from '../../utils'
 import { checkGuess } from '../../game-helpers'
+import { useState } from 'react/cjs/react.production.min'
 
 function Cell({ letter, status }) {
   const className = status ? `cell ${status}` : 'cell'
@@ -8,7 +9,7 @@ function Cell({ letter, status }) {
   return <span className={className}>{letter}</span>
 }
 
-function Guess({ guess, answer }) {
+function Guess({ guess, answer, numOfGuesses, gameStatusHandler }) {
   const result = guess && answer && checkGuess(guess.value, answer)
 
   return (

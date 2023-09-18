@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GuessInput({ onAddNewGuess }) {
+function GuessInput({ onAddNewGuess, gameStatus }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('')
 
   const handleSubmit = (e) => {
@@ -24,6 +24,7 @@ function GuessInput({ onAddNewGuess }) {
         maxLength={5}
         pattern='[a-zA-Z]{5}'
         title='5 letter word'
+        disabled={gameStatus !== 'running'}
       />
     </form>
   )
